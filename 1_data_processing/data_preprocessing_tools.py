@@ -24,6 +24,7 @@ from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 X = ct.fit_transform(X)
 
+
 # Encoding the Dependent Variable
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
@@ -38,3 +39,4 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train[:, 3:] = sc.fit_transform(X_train[:,3:])
 X_test[:, 3:] = sc.transform(X_test[:, 3:]) # don't introduce more knowledge to the test set
+
