@@ -49,3 +49,5 @@ X_test = sc.transform(X_test)
 # Print shapes to verify the split
 print('Training set shape:', X_train.shape)
 print('Test set shape:', X_test.shape)
+print(X_train)
+print(X_test)

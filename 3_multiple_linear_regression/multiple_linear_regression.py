@@ -41,3 +41,8 @@ X_train[:, 2:] = sc.fit_transform(X_train[:, 2:])
 y_train = sc.fit_transform(y_train.reshape(len(y_train), 1)).flatten()
 
 # Backward Elimination
+import statsmodels.api as sm
+X_train = sm.add_constant(X_train).astype(np.float64)
+X_opt = X_train[:, [0,1,2,3,4,5]]
+regressor_opt = sm.OLS(endog=y_train, exog=X_opt).fit()
+print(regressor_opt.summary())
