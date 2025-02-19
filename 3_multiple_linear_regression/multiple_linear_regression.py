@@ -46,3 +46,18 @@ X_train = sm.add_constant(X_train).astype(np.float64)
 X_opt = X_train[:, [0,1,2,3,4,5]]
 regressor_opt = sm.OLS(endog=y_train, exog=X_opt).fit()
 print(regressor_opt.summary())
+
+# Remove 1 and 2
+X_opt = X_train[:, [0,3,4,5]]
+regressor_opt = sm.OLS(endog=y_train, exog=X_opt).fit()
+print(regressor_opt.summary())
+
+# Remove 4
+X_opt = X_train[:, [0,3,5]]
+regressor_opt = sm.OLS(endog=y_train, exog=X_opt).fit()
+print(regressor_opt.summary())
+
+# Remove 5
+X_opt = X_train[:, [0,3]]
+regressor_opt = sm.OLS(endog=y_train, exog=X_opt).fit()
+print(regressor_opt.summary())
